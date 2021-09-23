@@ -15,7 +15,7 @@ node {
         sh 'docker version'
         sh 'docker build -t jhooq-docker-demo1 .'
         sh 'docker image list'
-        sh 'docker tag jhooq-docker-demo1 498381/jhooq-docker-demo:jhooq-docker-demo1'
+        sh 'docker tag jhooq-docker-demo1 498381/jhooq-docker-demo1:jhooq-docker-demo1'
     }
 
     withCredentials([string(credentialsId: 'DOCKER_HUB_PASS', variable: 'PASSWORD')]) {

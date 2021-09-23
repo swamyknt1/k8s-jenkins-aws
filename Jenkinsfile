@@ -13,9 +13,9 @@ node {
 
     stage("Docker build"){
         sh 'docker version'
-        sh 'docker build -t jhooq-docker-demo .'
+        sh 'docker build -t jhooq-docker-demo1 .'
         sh 'docker image list'
-        sh 'docker tag jhooq-docker-demo 498381/jhooq-docker-demo:jhooq-docker-demo'
+        sh 'docker tag jhooq-docker-demo1 498381/jhooq-docker-demo:jhooq-docker-demo1'
     }
 
     withCredentials([string(credentialsId: 'DOCKER_HUB_PASS', variable: 'PASSWORD')]) {
@@ -23,7 +23,7 @@ node {
     }
 
     stage("Push Image to Docker Hub"){
-        sh 'docker push  498381/jhooq-docker-demo:jhooq-docker-demo'
+        sh 'docker push  498381/jhooq-docker-demo1:jhooq-docker-demo1'
     }
     
     stage("kubernetes deployment"){
